@@ -18,7 +18,7 @@ class ModelInferece:
         :return: pd.Series with predicted values
         '''
         print('Loading the model')
-        self.modelo = load('../output/modelo.pkl')
+        self.modelo = load('../output/model.pkl')
         print('Loading data')
         test_df, y_test = DataSource().read_data(step_train=False)
         print('Preprocessing data')
