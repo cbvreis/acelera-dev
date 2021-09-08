@@ -17,6 +17,6 @@ class Visualization:
         data = pd.DataFrame({'pred' : y_pred, 'true' : y_true, 'residual': residual})
         plot1 = sns.distplot(data['residual'], bins = 50)
         plot2 = sns.scatterplot(x= 'true', y = 'residual', data = data)
-        plt.savefig(plot1, '../data/'+nome+'_distplot.csv')
-        plt.savefig(plot1, '../data/' + nome + 'scatterplot.csv')
+        #plt.savefig(plot1, '../data/'+nome+'_distplot.csv')
+        #plt.savefig(plot1, '../data/' + nome + 'scatterplot.csv')
         plt.show()

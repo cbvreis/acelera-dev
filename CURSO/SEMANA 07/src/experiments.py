@@ -56,10 +56,17 @@ class Experiments:
         print('Training Model')
         models = Experiments().train_model(X_train, y_train)
         print('Running Metrics')
+        best_model = 999999999
+        best_model_name = ""
         for model in models.keys():
-            print(model)
+            print(f'--------RESULT {model}-----------')
             y_pred = models[model].predict(X_test)
             print(Metrics().calculate_regression(y_test, pd.Series(y_pred)))
             metrics = Metrics().calculate_regression(y_test, pd.Series(y_pred))
+            flag_high = metrics['mean_abs_err']
+            if best_model > flag_high:
+                best_model = metrics['mean_abs_err']
+                best_model_name = model
             pd.DataFrame.from_dict(metrics, orient='index').to_csv('../output/' + model + '.csv')
-        return metrics
+            print(f'--------END {model} -----------')
+        return best_model, best_model_name

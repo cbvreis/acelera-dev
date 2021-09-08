@@ -28,4 +28,4 @@ class ModelInferece:
         y_pred = self.modelo['model_obj'].predict(X_test)
         print('Saving Files')
         pd.DataFrame(y_pred).to_csv('../output/predict.csv')
-        return y_pred
+        return y_pred, y_test
